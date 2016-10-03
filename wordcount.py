@@ -1,15 +1,26 @@
 # put your code here.
-text = open("twain.txt")
+from sys import argv
+from collections import Counter
 
-word_count =  {}
+filename = argv[1]
 
-for line in text:
-    words = line.rstrip().split(" ")
-    for word in words:
-        word = word.lower().strip(',.!?:;"_')
-        word_count[word] = word_count.get(word, 0) + 1
+text = open(filename)
+
+# word_count =  {}
+
+# for line in text:
+#     words = line.rstrip().split(" ")
+#     for word in words:
+#         word = word.lower().strip(',.!?:;"_')
+#         word_count[word] = word_count.get(word, 0) + 1
 
 
-for word, value in word_count.iteritems():
-    print word, value
+# for word, value in word_count.iteritems():
+#     print word, value
 #print sorted(word_count.items(), key = lambda x: x[1])
+
+words=[]
+for line in text:
+    words.append(line.rstrip().split(" "))
+c = Counter(words)
+print c 

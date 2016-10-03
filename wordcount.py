@@ -21,6 +21,6 @@ text = open(filename)
 
 words=[]
 for line in text:
-    words.append(line.rstrip().split(" "))
+    words.extend(line.rstrip().split(" "))
 c = Counter(words)
-print c 
+print sorted(c.items(), key = lambda x: x[1])
